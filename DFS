@@ -1,0 +1,24 @@
+class Traversal
+{
+    static void printdfs(ArrayList<ArrayList<Integer>> g, int s,int[] visited,ArrayList<Integer> ans)
+    {
+        visited[s]=1;
+        ans.add(s);
+       for(int i: g.get(s))
+       {
+           if(visited[i]==0)
+           printdfs(g,i,visited,ans);
+       }
+       
+    }
+    
+    static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> g, int N)
+    {
+       // add your code here
+       int[] visited=new int[N];
+       ArrayList<Integer> ans=new ArrayList<Integer>();
+       printdfs(g,0,visited,ans);
+       return ans;
+    }
+}
+
